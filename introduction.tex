@@ -1,0 +1,121 @@
+
+\section{Introduction}  
+
+\subsection{Experiments, Sample Space and Events}
+
+\paragraph{Experiments}
+An experiment is  any process that leads to a recorded observation.
+
+\paragraph {Outcome and Sample Space}
+An outcome is possible result of the experiment. The set of all possible
+outcomes is called the sample space. The sample space is often denoted by \(\Omega\).
+
+Observe that not all sample spaces are countable. An uncountable example would be the set of all real number between \(0\) and \(1\).
+
+\paragraph {Events}
+An event is a set of outcomes that is, a subset of the sample space \(\Omega\).
+
+\paragraph {Mutual Exclusion}
+Events \(A, B\) are mutually exclusive (disjoint) if they have no outcomes in common.
+That is, \(A\cap B = \emptyset\).
+
+\paragraph {Set Operation Revision}
+If you have trouble recalling the following laws, for associativity and
+distributivity, you may replace \(\cap\) with \(\times\) and \(\cup\) with
+\(+\). 
+
+TODO: Associative and Distributive Law
+
+\subsection{Sigma Algebra}
+The \(\sigma\) algebra must be defined for rigorously working with probability.
+The formalization of this, is beyond the scope of this course.
+
+The \(\sigma\)-algebra can be thought of as the family of all possible
+subsets or events in a sample space. Analogously, this may be
+conceptualised as the power-set of the sample space.
+
+\paragraph {Probability}
+The probability is a set function, often denoted by \(\mathcal{P}\) that maps events from
+the \(\sigma\)-algebra to \([0, 1]\) and satisfies certain properties.
+
+\paragraph{Probability Space}
+The triplet \(\Omega, \mathcal{A}, \mathbb{P}\) is the probability space where
+\begin{itemize}
+    \item \(\Omega\) is the sample space,
+    \item \(\mathcal{A}\) is the \(\sigma\)-algebra,
+    \item \(\mathbb{P}\) is the probability function.
+\end{itemize}
+
+\paragraph {Properties of Probability}
+Given the probability/sample space \(\Omega, \mathcal{A}, \mathbb{P}\), the probability
+function \(\mathbb{P}\) must satisfy
+\begin{itemize}
+    \item For all set \(A\in \mathcal{A}\), \(\mathbb{P}(A) \geq 0\)
+    \item \(\mathbb{P}(\Omega) = 1\) 
+    \item Countable additive. Suppose that the family of set \(A_i\) % TODO:
+\end{itemize}
+
+\paragraph {Theorem: Continuity from below}
+Given an increasing sequence of events \(A_1 \subset A_2 \subset \dots \subset A_n\)
+then, \[
+    \mathbb{P}\left(
+        \bigcup_{n=1}^{\infty} A_n
+    \right)
+    =
+    \lim_{n\to\infty} = \mathbb{P} (A_n)
+\]
+
+\paragraph {Theorem: Continuity from below}
+Given a decreasing sequence of events \(A_1 \supset A_2 \supset \dots A_n\)
+then, \[
+    \mathbb{P}\left(
+        \bigcap_{n=1}^{\infty} A_n
+    \right)
+    =
+    \lim_{n\to\infty} = \mathbb{P} (A_n)
+\]
+
+\paragraph{More Probability Lemmas}
+\begin{itemize}
+    \item \(\mathbb{P} (\emptyset) = 0\),
+    \item For any \(A\in\mathcal{A}\), \(\mathbb{P}(A) \leq 1\) and \(\mathbb{P}(A^c) = 1-\mathbb{P}(A)\),
+    \item Suppose \(A, B\in\mathcal{A}\) and \(A\subseteq B\) then \(\mathbb{P}(A) \leq \mathbb{P}(B) \).
+\end{itemize}
+
+\subsection{Conditional Probability and Independence}
+
+\paragraph{Conditional Probability}
+The conditional probability that an event \(A\) occurs given that the event
+\(B\) has already occurred is denoted by 
+\[
+    \mathbb{P} (A|B) = \frac{\mathbb{P} (A \cap B)}{\mathbb{P} (B)}
+\]
+
+\paragraph{Independence}
+The events \(A\) and \(B\) are independent if
+\(
+    \mathbb{P}(A\cap B) = \mathbb{P}(A)\mathbb{P}(B).
+\)
+
+\paragraph{A lemma on independence}
+Given two events \(A, B\), then 
+\[
+    \mathbb{P}(A | B) = A
+    \quad \text{ if and only if } \quad
+    \mathbb{P}(B | A) = B
+\]
+
+\paragraph{Pairwise Independence of Sequences}
+A countable sequence of events \(A_{i\in\mathbb{N}}\) is pairwise independent
+if  \[
+    \mathbb{P}(A_i0 \cap A_j) = \mathbb{P} (A_i) \mathbb{P}(A_j) \quad
+    \forall i\neq j.
+\]
+
+\paragraph{Independence of Sequences}
+A countable sequence of events \(A_{i\in\mathbb{N}}\) is independent is
+independent if for any sub-collection \(A_{i_1},\dots, A_{i_n}\) we have
+\[
+    \mathbb{P}(A_{i_1} \cap A_{i_2}\cap\dots\cap A_{i_n})
+    \prod_{j=1}^{n} \mathbb{P}(A_{i_j}).
+\]
