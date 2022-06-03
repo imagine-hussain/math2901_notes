@@ -119,3 +119,30 @@ independent if for any sub-collection \(A_{i_1},\dots, A_{i_n}\) we have
     \mathbb{P}(A_{i_1} \cap A_{i_2}\cap\dots\cap A_{i_n})
     \prod_{j=1}^{n} \mathbb{P}(A_{i_j}).
 \]
+
+\paragraph{Multiplicative Law}
+Given \(A, B\) are events, then,
+\[
+    \mathbb{P}(A \cap B) = \mathbb{P}(A | B) \mathbb{P}(B)
+\]
+
+This is equivalent to the multiplication down a decision tree.
+
+\paragraph{Additive Law}
+Let \(A, B\) be events. Then, \[
+    \mathbb{P}(A\cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B).
+\]
+This is analogous to the inclusion-exclusion principle from set theory.
+
+
+\paragraph{Law of Total Probability}
+Suppose that \((A_i)_{i = 1, \dots, k}\) are mutually exclusive and
+exhaustive of \(\Omega\).
+That is, \[
+    \bigcup_{i=1}^k A_i = \Omega.
+\]
+
+Then for any event \(B\), we have
+\[
+    \mathbb{P}(B) = \sum_{i=1}^k \mathbb{P}(B | A_i) \mathbb{P}(A_i).
+\]
