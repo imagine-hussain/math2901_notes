@@ -117,6 +117,7 @@ A countable sequence of events \(A_{i\in\mathbb{N}}\) is independent is
 independent if for any sub-collection \(A_{i_1},\dots, A_{i_n}\) we have
 \[
     \mathbb{P}(A_{i_1} \cap A_{i_2}\cap\dots\cap A_{i_n})
+    =
     \prod_{j=1}^{n} \mathbb{P}(A_{i_j}).
 \]
 
@@ -145,4 +146,20 @@ That is, \[
 Then for any event \(B\), we have
 \[
     \mathbb{P}(B) = \sum_{i=1}^k \mathbb{P}(B | A_i) \mathbb{P}(A_i).
+\]
+
+\subsection{Descriptive Statistics and R}
+
+\paragraph{Sample Variance and Mean}
+Suppose that we are given observations \(x\) such that
+\(x = (x_1, x_2, \dots, x_n)\).
+
+Then, the \textbf{sample mean} is given by
+\[
+    \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i.
+\]
+
+The \textbf{sample variance} is given by
+\[
+    s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2.
 \]
