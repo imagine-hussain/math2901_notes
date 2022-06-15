@@ -164,3 +164,42 @@ Given a random variance \(X\) then, for any constants
     \item \(\Var(X + b) = \Var(X)\),
     \item \(\Var(b) = 0\).
 \end{enumerate}
+
+\subsection{Moment Generating Functions}
+
+\paragraph{Momnets}
+A moment of the random variable is denoted by
+\[ 
+    \mathbb{E}[X^r], \quad r = 1, 2, \dots
+\]
+
+Moments measure mean, variance, skewness, and kurtosis, all ways of
+looking at the shape of the distribition.
+
+Suppose that \(f(x)\) is a probability density function. Then,
+\[
+    \mathbb{E}[X^r] = \int_{-\infty}^{\infty} x^r f(x)dx
+\]
+
+
+\paragraph{Kurtosis}
+The kurtosis is the standards 4th moment. It measures how \textit{fat}
+the tail is. A positive kurtosis implies a thinner tail than negative
+kurtosis.
+
+\paragraph{Moment Generating Function}
+A moment generating function (MGF) is denoted as
+\[
+    M_x(u) = \mathbb{E}(e^{uX})
+    = \int_{\text{all } x} e^{uX} f_X(x)dx.
+\]
+We say that the MGF of \(X\) exists if \(M_X(u)\) is finite
+in some interval containing zero.
+
+\paragraph{Using Moment Generating Function to Find Moments}
+Suppose that the moment genrating funciton exists. Then,
+\[
+    \mathbb{E}(X^r)
+    = \lim_{u\to 0} M_X^(r)(u)
+    \eqqcolon \lim_{x\to 0} \frac{d^r}{d u} M_x(u) .
+\]
