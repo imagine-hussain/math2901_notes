@@ -1,0 +1,166 @@
+
+\section{Random Variables}
+
+\subsection{Random Variables}
+
+\paragraph{Definition: Random Variables}
+Suppose that we work on a probability space \((\Omega, \mathcal{A}, \mathbb{P}\)
+And the outcomes in \(\Omega\) are denoted by \(\omega\).
+
+Then, a random variable (r.v) \(X\) is a function from \(\Omega\) to
+\(\mathbb{R}\) such that \(\forall x\in\mathbb{R}\),
+the set \(
+    A_x = \{\omega\in \Omega, X(\omega) \leq x\}
+\).
+That is, a random variable is a function that maps \(Omega\) to some space.
+
+\paragraph{Convention on Random Variables}
+Random variables are often denoted by capital letters while, the
+outcomes are denoted by the lower-case equivalent of the random variable.
+
+\paragraph{Cumulative Distributive}
+The cumulative distribution of a r.v \(X\) is defined by
+\[
+    F_X(x) = \mathbb{P}(\{\omega: X(\omega \leq x)\}) = \mathbb{P}(X\leq x).
+\]
+
+\paragraph{Cumulative Distribution Theorems}
+Suppose that \(F_X\) is cumulative distribution function of \(X\).
+Then,
+\begin{itemize}
+    \item It is bounded between zero and one and
+    \[
+        \lim_{x \downarrow -\infty } = 0
+        \quad\text{ and }
+        \lim_{x\uparrow\infty} = 1.
+    \]
+    \item It is non-decreasing. That is, if \(x\leq y\) then,
+    \(F_X(x) \leq F_X(y)\).
+    \item For any \(x \leq y\),
+    \[
+        \mathbb{P}(x < X < y) = \mathbb{P}(X \leq y) - \mathbb{P}(X\leq x)
+        = F_X(y) - F_X(x).
+    \]
+    \item It is right continuous. That is,
+    \[
+        \lim{x\uparrow\infty} F_X\left(x + \frac{1}{n}\right) = F_X(x).
+    \]
+    \item it has finite left-hand limit and
+    \[
+        \mathbb{P}(X< x)
+        =
+        \lim_{n\to\infty} F_x\left(x - \frac{1}{n}\right),
+    \]
+    denoted by \(F_X(x-)\).
+    It is useful to observe that,
+    \[
+        \mathbb{P}(X=x) = F_X(X) - F_X(x-) \coloneqq F_X(x).
+    \]
+\end{itemize}
+
+\paragraph{Discrete Random Variables}
+A r.v. is said to be discrete if the image of \(X\) consists of 
+countable many values \(x\) where \(\mathbb{P}(X = x) > 0\).
+The probability function is \(\Delta F_X(x) = \mathbb{P}(X = x)\)
+and satisfies
+\[
+    \sum_{\text{all} x} \mathbb{P} (X = x) = 1.
+\]
+
+\paragraph{Continuous Random Variables and Probability Density Functions}
+A r.v is continuous if the image of \(X\) takes a continuum of values.
+
+The probability density function of a r.v is a real-valued function
+\(f_x\) on \(\mathbb{R} with\) the property that
+\[
+    \mathbb{P}(X \in A) = \int_{A} f_x(y)dy,
+\]
+for any \textit{Borel} subset of \(\mathbb{R}\)
+
+\paragraph{Required Properties of a Density Function}
+Valid density functions \(f: \mathbb{R}\to \mathbb{R}\)
+must satisfy the following properties:
+\begin{itemize}
+    \item \(f(x) \geq 0, \forall x\in \mathbb{R}\)
+    \item \(\int_{-\infty}^{\infty} f(x)dx = 1\).
+\end{itemize}
+
+\paragraph{Useful Properties of a Continuous Random Variable}
+For all continuous random variables \(X\), with density \(f_x\),
+\begin{enumerate}
+    \item If \(A = (-\infty, x]\) and creating a cumulative distribution
+    function \(F_x\) such that \(
+        F_X(x) = \mathbb{P}(X\in A) = \mathbb{P}(X \leq x)
+    \) then, \[
+        F_X(x) = \int_{-infty}^{x} f_x(y)dy.
+    \]
+    \item For all \(a < b\),
+    \[
+        \mathbb{P}(a < X \leq b) = F_X(b) - F_X(a)
+        = \int_(a)^{b} f_X(x)dx.
+    \]
+    \item By the fundamental theorem of calculus and property 1,
+    \[
+        F'_X(x) = \frac{d}{dx} \int_{-\infty}^{x} f_x(y)dy = f_X(x).
+    \]
+\end{enumerate}
+
+\subsection{Expectation and Variance}
+
+\paragraph{Expectation}
+The expectation of a r.v \(X\), denoted by \(\mathbb{E}(X)\) may be
+computed depending on when \(X\) is discrete or continuous.
+\subparagraph{Expectation of Discrete Random Variables}
+If \(X\) is a discrete random variable then,
+\[
+    \mathbb{E}(X) \coloneqq
+    \sum_{\text{all } x} x \mathbb{P}(X = x)
+    =
+    \sum_{\text{all } x} x\Delta F_x(x).
+\]
+\subparagraph{Expectation of continuous Random Variables}
+If \(X\) is a continuous random variable then,
+\[
+    \mathbb{E}(X) \coloneqq
+    \int_{-infty}^{infty} x f_X(x)dx
+\]
+
+\paragraph{Interpreting the Expectation}
+Often \(\mathbb{E}(x)\) is called the \textit{mean} of \(X\).
+Observe that mean and average are not neccesarily the same.
+\(\mathbb{E}(X)\) may be thought as the long-run average of
+the outcomes of \(X\). That is, the average observation of 
+\(X\) converges to \(\mathbb{E}(X)\).
+
+Where our density function represents a physical model, \(\mathbb{E}(X)\)
+is equivalent to the center of mass.
+
+% TODO #4 - expecation of transformation
+
+\paragraph{Linearity of the Expectation}
+We note that the expectation is linear. That is, for all constants
+\(a, b \in \mathbb{R}\),
+\[
+    \mathbb{E}(aX + b) = a \mathbb{E}(X) + b.
+\]
+
+\paragraph{Variance}
+Let \(X\) be a r.v and set \(\mu = \mathbb{E}(x)\).
+Then,
+\[
+    \Var(X) \coloneqq
+    \mathbb{E}\left(
+        \left(X - \mu \right)^2
+    \right).
+\]
+The standard deviation is the square root of variance.
+
+\paragraph{Properties of Variance}
+Given a random variance \(X\) then, for any constants
+\(a, b \in \mathbb{R}\),
+\begin{enumerate}
+    \item \(\Var(X) = \mathbb{E}(X^2) - \left(\mathbb{E}(X)\right)^2.\),
+    \item \(\Var(aX) = a^2 \Var(X)\),
+    \item \(\Var(X + b) = \Var(X)\),
+    \item \(\Var(b) = 0\).
+\end{enumerate}
