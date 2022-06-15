@@ -167,7 +167,7 @@ Given a random variance \(X\) then, for any constants
 
 \subsection{Moment Generating Functions}
 
-\paragraph{Momnets}
+\paragraph{Moments}
 A moment of the random variable is denoted by
 \[ 
     \mathbb{E}[X^r], \quad r = 1, 2, \dots
@@ -203,3 +203,20 @@ Suppose that the moment genrating funciton exists. Then,
     = \lim_{u\to 0} M_X^(r)(u)
     \eqqcolon \lim_{x\to 0} \frac{d^r}{d u} M_x(u) .
 \]
+
+\paragraph{Equivalence of Moment Generation Functions}
+Let \(X, Y\) be two random variables and 
+suppose that \(M_X(u) = M_Y(u)\) for all \(u\) in some interval
+containing \(0\). Then, \[
+    F_X(x) = F_Y(x), \forall x \in \mathbb{R}.
+\]
+That is, a moment generating function (when it exists), uniquely
+characterises a cumulative distribution function of a random variable.
+
+\paragraph{Existence of Moments and Moment Generating Functions}
+If the moment generating function exists then all moments can be computed.
+However, the converse is not neccesarily true.
+That is, if all the moments exist and are finite, this does not imply
+the moment generating function exists.
+
+
