@@ -1,0 +1,106 @@
+\section{Common Distributions}
+
+\subsection{Common Discrete Distributions}
+
+\paragraph{Bernoulli Distributions}
+A Bernoulli trial is an experiment with two outcomes;
+success and failure.
+A random variable \(X\) is defined with
+\[
+    X = \begin{cases}
+        1 & \text{if  success}, \\
+        0 & \text{if  failure}.
+    \end{cases}
+\]
+
+Let \(p\in[0, 1]\) be probability of cuess. Then, we denote
+\(X\sim \text{Bernoulli}(p)\)
+\begin{enumerate}
+    \item \(\mathbb{P}(X = 1) = p\),
+    \item \(\mathbb{P}(X=0)  = 1-p\),
+    \item \(\mathbb{E}(X) = p\),
+    \item \(\Var(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = 1\times p - p^2 =
+    p(1-p)\).
+\end{enumerate}
+
+\paragraph{Binomial Distribution}
+When there are \(n\) independent bernoulli trials with
+a success rate of \(p\), and \(X \coloneqq\) total number of succeses.
+Then, \(X\) is a Binomial r.v with parameter \(n\) and \(p\)
+such taht we write \(X\sim \text{Bin}(n, p)\).
+
+Let \((Y_i)_{i=1, \dots, n}\) be a sequence of independent
+bernoulli trials with success rate \(p\)..
+Then \[
+    X \coloneqq \sum_{i=1}^n Y_i \text{ is } \text{Bin}(n, p).
+\]
+
+Expectation exists as \[
+    \mathbb{E}(X)
+    = \mathbb{E}\left(\sum_{i=1}^{n} Y_i\right)
+    = \sum_{i=1}^{n} \mathbb{E}(Y_i) = np.
+\]
+
+Alternatively, using combinatorics,
+\[
+    \mathbb{P}(X=k) = C^{n}_{k} p^k (1-p)^{n-k}.
+\]
+
+\paragraph{Poisson Distribution}
+A random variable \(X\) follows the poisson distribution
+with parameter \(\lambda\) if its probability function is
+\[
+    \mathbb{P}(X = k)
+    = \frac{\lambda^k e^{-\lambda}}{k!}.
+\]
+
+Observe that
+\[
+    \mathbb{E}(X) = \lambda.
+\]
+
+\subparagraph{Use} The poisson distribution is used to model
+count data. That is, counting the number of times
+an event occurs within a time period.
+The parameter \(\lambda\) epresents the average number of times
+the event occurs in the time period of interest.
+
+
+
+\paragraph{Hypergeometric Distribution}
+A random variable has hypergeometric distribution with
+parameter \(N, m, n\) and is written as
+\(X\sim \Hyp(n,m N)\) if
+\[
+    \mathbb{P}(X = k)
+    =
+    \frac{C_x^m \times C^{N-m}_{n-x}}{C^N_n},
+    \quad
+    \text{ where } x = 1,\dots, n.
+\]
+\subparagraph{Example of Hypergeometric}
+Gien a box of \(N\) balls, \(m\) are red and
+\(N - m\) are black. Draw \(n\) balls at random and let
+\(X\) be the number of red balls drawn. Then, \(X\sum \Hyp(n, m, N)\).
+
+\subparagraph{Remark}
+The ``I feel like skipping this... discrete problems are not very interesting''
+was stated while covering this. Interpretation of this
+is left as an exercise to the reader.
+
+
+\subsection{Continous Distributions}
+
+\paragraph{Gaussian - Normal Random Variable}
+Given parameters \(\mu, \sigma^2\) has a probability density
+function as
+\[
+    f_X(x)
+    =
+    \dfrac{a}{\sqrt{2\pi\sigma^2}}
+    e^{-\frac{(x-\mu)^2}{2\sigma^2}},
+    \quad
+    x\in \mathbb{R}.
+\]
+The expecation and variance are \(\mu, \sigma^2\)
+respectively.
