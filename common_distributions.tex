@@ -104,3 +104,24 @@ function as
 \]
 The expecation and variance are \(\mu, \sigma^2\)
 respectively.
+
+\paragraph{Linear Transforms}
+Let \(X\) be a r.v with a probability
+density function \(f_X\). Let
+\(y = a + bX\) then for \(b > 0\) and \(a\in\mathbb{R}\),
+then \[
+    f_Y(x) = \frac{1}{b}f_X \left(
+        \frac{x-a}{b}
+    \right).
+\]
+
+\paragraph{Linear Tranformation of Normally Distributed Random Variable}
+Suppose that \(X \sum \Normal(\mu, \sigma^2)\)
+and \(a \in \mathbb{R}\) and \(b > 0\).
+Then, the random variable \(Y \coloneqq a + bX\) is normally
+distributed as
+\[
+    Y\sim \Normal(a + b\mu, b^2 \sigma^2).
+\]
+That is, normally distributed random variable are closed
+under linear transformation.
