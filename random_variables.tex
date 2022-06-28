@@ -166,7 +166,7 @@ Given a random variance \(X\) then, for any constants
 \end{enumerate}
 
 \paragraph{Covariance}
-Recall that variance is \(\mathbb{E}(X - \mu)^2\).
+Recall that variance is \(\mathbb{E}((X - \mu)^2)\).
 Suppose that \(X, Y\) are random variables such that
 \(\mathbb{E}(X) = \mu_X, \mathbb{E}(Y) = \mu_Y\).
 Then, the covariance is defined as
@@ -214,7 +214,7 @@ kurtosis.
 \paragraph{Moment Generating Function}
 A moment generating function (MGF) is denoted as
 \[
-    M_x(u) = \mathbb{E}(e^{uX})
+    M_X (u) = \mathbb{E}(e^{uX})
     = \int_{\text{all } x} e^{uX} f_X(x)dx.
 \]
 We say that the MGF of \(X\) exists if \(M_X(u)\) is finite
@@ -287,5 +287,3 @@ Using Jesnen's inequality, it can be shown that
 \[
     \text{Arithmetic Mean} \geq \text{Geometric Mean} \geq \text{Harmonic Mean}.
 \]
-
-

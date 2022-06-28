@@ -125,3 +125,21 @@ distributed as
 \]
 That is, normally distributed random variable are closed
 under linear transformation.
+
+\paragraph{Indicator Function}
+An indicator function of a set \(A\) is defined by \[ 
+    I_A(X) = \begin{cases}
+        1 & x \in A \\
+        0 & x \not\in A
+    \end{cases}
+.\]
+Commonly, we may see indicator functions over intervals that follow the notation
+\(I_{[a, b]}\).
+
+The indicator unifies expectation and probability since, the probability
+is the expectation of the indicator function.
+Therefore, it may be written that \[
+    \mathbb{P}(X\in A) = \int_{A} f_X(x)dx
+    = \int_{-\infty}^{\infty} I_A(x) f_X(x) dx = \mathbb{E}(I_A(X))
+.\]
+
