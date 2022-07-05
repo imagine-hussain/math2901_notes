@@ -231,7 +231,7 @@ In the discrete case, \[
 The method for convolutions can be use to show that if
 \( X \sim \Gamma(\alpha , 1) \) and, \( Y \sim \Gamma(\beta, 1) \),
 where \( X, Y \) are independent, then, \[
-    Z \coloneqq X + Y \sim \Gamma(\a + \beta, 1).
+    Z \coloneqq X + Y \sim \Gamma(\alpha  + \beta, 1).
 .\]
 Observe \( 0 < y < z < \infty \).
 
@@ -245,4 +245,25 @@ Generally, if \( \{X_i\}_{i=1}^n  \) is an independent sequence of random variab
 then  \[
     M_{\sum_{i=1}^n} x_i (T) = \prod_{i=1}^n M_{X_i} (t)
 .\]
+
+\paragraph{Useful Results about Sums}
+Let \( (X_i)_{i = 1, \ldots, n} \) be an independent sequence of random
+variables and set \( Y \coloneqq \sum_{i=1}^{n} X_i \).
+Then,
+\begin{align*}
+    X_i \sim \mathcal{N}(\mu_i, \sigma_i^2)
+        &\implies Y \sim \mathcal{N} \left( \sum \mu_i, \sum \sigma_i^2 \right) \\
+    X_i \sim \exp(\lambda)
+        &\implies Y \sim \Gamma(n, \lambda) \\
+    X_i \sim \Gamma(1, \lambda)
+        &\implies Y \sim \Gamma(n, \lambda) \\
+    X_i \sim \Gamma(\alpha_i, \beta)
+        &\implies Y \sim \Gamma\left(\sum \alpha_i, \beta \right) \\
+    X_i \sim \Poisson(\lambda_i)
+        &\implies Y \sim \Poisson\left(\sum \lambda_i\right) \\
+    X_i \sim \Bernoulli(p_i)
+        &\implies Y \sim \Bin(n, p) \\
+    X_i \sim \Bin(n_i, p)
+        &\implies Y \sim \Bin\left(\sum n_i, p\right).
+.\end{align*}
 
