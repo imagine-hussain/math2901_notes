@@ -99,6 +99,9 @@ A random vector \(X = (X_1, X_2)\) is said to be Gaussian with
      f_X(x) = \frac{1}{\sqrt{(2\pi)^d |V|}}
      \exp \left( -\frac{1}{2} (X-\mu_X)^T V^{-1}(X- \mu_X) \right) 
  .\]
+That is \[
+    f_X(x)
+.\]
  \(d = 2\) (dimensions),  \(V^{-1}\) is the matrix inverse of  \(V\)
  and  \(|V|\) is the determinant of  \(V\).
 
@@ -122,7 +125,7 @@ given the set  \(\{Y = y\} \) is \[
             & \text{ continuous. }
     \end{cases}
 .\]
-Conditional variance follows such that  \[
+Conditional variance follows such that when given \( Y=y \), \[
     \Var(X | Y = y)
     =
     \mathbb{E}(X^2 | Y = y) - ( \mathbb{E}(X | Y = y) )^2
@@ -193,6 +196,53 @@ then, the probability density of \( Y \coloneqq h(X)\)
 is given by \[
     f_Y(y) = f_X(x) \left| \frac{dy}{dx} \right| 
     =
-    f_X \circ h^{-1} (y) \left| \frac{dh^{-1}(y)}{dy)\right| 
+    f_X \circ h^{-1} (y) \left| \frac{dh^{-1}(y)}{dy}\right| 
+.\]
+
+\subsection{Bivariate Transformations}
+
+Suppose that \( X, Y \) are random variables over \( \mathbb{R} \) with  tranforms
+\( U, V \) respectively.
+Then, the joint probability density is given by \[
+    f_{U, V} = f_{X, Y}(x, y) |\det(J)|
+.\]
+Observe that \( X = U^{-1}, V = Y^{-1}\). Recall from multivariate
+calculus that \( J \) is the Jacobian Matrix such that \[
+    J = \begin{pmatrix} 
+        \dfrac{dx}{du} & \dfrac{dx}{dv}
+                \vspace{3mm}\\
+        \dfrac{dy}{du} & \dfrac{dy}{dv}
+    \end{pmatrix} 
+.\]
+
+\subsection{Sums of Variables}
+
+\paragraph{Convolution Formula}
+Suppose \( X, Y \) are independent, continuous r.v. with density  \( f_X \),
+\( f_Y \). Let \( Z = X + Y \). Then,  \[
+    f_Z(z) = \int_{-\infty}{\infty} f_X(Z - Y) f_Y(y) dy
+.\]
+
+In the discrete case, \[
+    \mathbb{P}(X + Y = z) = \sum_{y} \mathbb{P}(X = z - y) \mathbb{P}(Y = y)
+.\]
+
+\paragraph{Convolutions and Exponential / Gamma}
+The method for convolutions can be use to show that if
+\( X \sim \Gamma(\alpha , 1) \) and, \( Y \sim \Gamma(\beta, 1) \),
+where \( X, Y \) are independent, then, \[
+    Z \coloneqq X + Y \sim \Gamma(\a + \beta, 1).
+.\]
+Observe \( 0 < y < z < \infty \).
+
+\paragraph{Convolutions and Moment Generating Functions}
+Suppose that \( X, Y \) are random variables with moment
+generating functions. Then, \[
+    M_{X + Y}(t) = M_X(t) M_Y(t)
+.\]
+
+Generally, if \( \{X_i\}_{i=1}^n  \) is an independent sequence of random variables
+then  \[
+    M_{\sum_{i=1}^n} x_i (T) = \prod_{i=1}^n M_{X_i} (t)
 .\]
 
