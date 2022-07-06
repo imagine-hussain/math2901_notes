@@ -1,0 +1,113 @@
+\section{Sums of Variables}
+
+\paragraph{Convolution Formula}
+Suppose \( X, Y \) are independent, continuous r.v. with density  \( f_X \),
+\( f_Y \). Let \( Z = X + Y \). Then,  \[
+    f_Z(z) = \int_{-\infty}{\infty} f_X(Z - Y) f_Y(y) dy
+.\]
+
+In the discrete case, \[
+    \mathbb{P}(X + Y = z) = \sum_{y} \mathbb{P}(X = z - y) \mathbb{P}(Y = y)
+.\]
+
+\paragraph{Convolutions and Exponential / Gamma}
+The method for convolutions can be use to show that if
+\( X \sim \Gamma(\alpha , 1) \) and, \( Y \sim \Gamma(\beta, 1) \),
+where \( X, Y \) are independent, then, \[
+    Z \coloneqq X + Y \sim \Gamma(\alpha  + \beta, 1).
+.\]
+Observe \( 0 < y < z < \infty \).
+
+\paragraph{Convolutions and Moment Generating Functions}
+Suppose that \( X, Y \) are random variables with moment
+generating functions. Then, \[
+    M_{X + Y}(t) = M_X(t) M_Y(t)
+.\]
+
+Generally, if \( \{X_i\}_{i=1}^n  \) is an independent sequence of random variables
+then  \[
+    M_{\sum_{i=1}^n} x_i (T) = \prod_{i=1}^n M_{X_i} (t)
+.\]
+
+\paragraph{Useful Results about Sums}
+Let \( (X_i)_{i = 1, \ldots, n} \) be an independent sequence of random
+variables and set \( Y \coloneqq \sum_{i=1}^{n} X_i \).
+Then,
+\begin{align*}
+    X_i \sim \mathcal{N}(\mu_i, \sigma_i^2)
+        &\implies Y \sim \mathcal{N} \left( \sum \mu_i, \sum \sigma_i^2 \right) \\
+    X_i \sim \exp(\lambda)
+        &\implies Y \sim \Gamma(n, \lambda) \\
+    X_i \sim \Gamma(1, \lambda)
+        &\implies Y \sim \Gamma(n, \lambda) \\
+    X_i \sim \Gamma(\alpha_i, \beta)
+        &\implies Y \sim \Gamma\left(\sum \alpha_i, \beta \right) \\
+    X_i \sim \Poisson(\lambda_i)
+        &\implies Y \sim \Poisson\left(\sum \lambda_i\right) \\
+    X_i \sim \Bernoulli(p_i)
+        &\implies Y \sim \Bin(n, p) \\
+    X_i \sim \Bin(n_i, p)
+        &\implies Y \sim \Bin\left(\sum n_i, p\right).
+.\end{align*}
+
+\section{Central Limit Theorem}
+
+\paragraph{Definition: Central Limit Theorem}
+Let \( (X_n)_{n \in  \mathbb{N}} \) be a sequence of random variables
+with common mean  \( \mu = \mathbb{E}(X_1)  \) and variance
+\( \sigma^2 = \Var(X_1) < \infty\).
+Let \( \overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i \) then, \[
+    \frac{\overline{x}_n - \mu}{\sigma / \sqrt{ n }}
+    \xrightarrow{d}  Z \sim \mathcal{N}(0, 1)
+.\]
+
+\paragraph{Convergence of Random Variables}
+Let \( (X_i)_{i \in  \mathbb{N}} \) be a random sequence of random variables.
+\( X_n \) converges to  \( X \) in terms of distribution if,
+for all \( x \) where  \( F_X(x) \) is continuous,  \[
+    \lim_{n \to  \infty} F_{X_n}(x) = F_X(x)
+.\]
+
+This is denoted as \( X_N \xrightarrow{d} X \).
+
+\paragraph{Convergence of Moment Generating Functions and Existence of CDF}
+Suppose \( (X_n)_{n \in  \mathbb{N}} \) is a sequence of random variables with
+moment generating function  \( M_{X_N}(t) \).
+Suppose  \[
+    M(t) = \lim_{n \to \infty} M_{X_n}(t)
+\]
+exists.
+Then, there exists a unique valid cumulative distribution function
+\( F \)  and random variable  \( X \) such that
+ \( F_X = F \).
+
+The moments are uniquely determined by \( M \) and for all
+points of continuity,  \[
+    \lim_{n \to  \infty} F_{X_n} (X)S = F(X) + F_X(x)
+.\]
+
+\paragraph{Convergence: Epsilon Definition for Probability}
+Consider a sequence of variable \( (X_n)_{n=1 \ldots,} \) converges
+to a random variable \( X \) if for all  \( \epsilon > 0 \), \[
+    \lim_{n \to \infty} \mathbb{P}( |X_n - X| > \epsilon ) = 0
+.\]
+
+\paragraph{Law of Large Numbers}
+(Strong Version) Let \( (X_n)_{n \in \mathbb{N}} \) be a sequence of independent
+random variables with mean \( \mu \), and finite variable  \( \sigma^A\).
+Set \( \overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i \).
+Then  \[
+    \overline{X}_n \xrightarrow{a.s} \mu
+.\]
+
+(Weak Version): Same Thing but using \textit{almost surely}
+probability for convergence.
+
+\paragraph{Almost Surely Convergence}
+Two random variables converge \textit{almost surely} if for
+random variables \( X, Y \)
+\( \mathbb{P}(Y = X) = 1 \). The same can be said for sequences,
+written as \( X \xrightarrow{a.s} X\).
+
+sadlfj
+
