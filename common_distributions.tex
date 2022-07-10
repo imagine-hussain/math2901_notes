@@ -70,7 +70,7 @@ the event occurs in the time period of interest.
 \paragraph{Hypergeometric Distribution}
 A random variable has hypergeometric distribution with
 parameter \(N, m, n\) and is written as
-\(X\sim \Hyp(n,m N)\) if
+\(X\sim \Hyp(n,m, N)\) if
 \[
     \mathbb{P}(X = k)
     =
@@ -79,9 +79,9 @@ parameter \(N, m, n\) and is written as
     \text{ where } x = 1,\dots, n.
 \]
 \subparagraph{Example of Hypergeometric}
-Gien a box of \(N\) balls, \(m\) are red and
+Given a box of \(N\) balls, \(m\) are red and
 \(N - m\) are black. Draw \(n\) balls at random and let
-\(X\) be the number of red balls drawn. Then, \(X\sum \Hyp(n, m, N)\).
+\(X\) be the number of red balls drawn. Then, \(X \sim \Hyp(n, m, N)\).
 
 \subparagraph{Remark}
 The ``I feel like skipping this... discrete problems are not very interesting''
@@ -97,7 +97,7 @@ function as
 \[
     f_X(x)
     =
-    \dfrac{a}{\sqrt{2\pi\sigma^2}}
+    \dfrac{1}{\sqrt{2\pi\sigma^2}}
     e^{-\frac{(x-\mu)^2}{2\sigma^2}},
     \quad
     x\in \mathbb{R}.
