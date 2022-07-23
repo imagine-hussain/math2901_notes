@@ -1,0 +1,70 @@
+\section{Estimators}
+
+\subsection{Data and Models}
+
+\paragraph{Samples and Data}
+A random sample is a collextion of (random) observations
+\((X_1, \ldots, X_n)\)
+The sample data is \(x_1, \ldots, x_n\).
+For the sake of laziness, this may be represented as
+\(X[1, n]\) and  \(x[1, n]\) respectively.
+This is not standard notation.
+
+\paragraph{Parametric Model}
+A parametric model for a random sample \(X[1, n]\)
+is a family of probability density functions
+\(f(x : \theta)\) for \(\theta in \Theta\) where \(\Theta \in  \mathbb{R}^d\)
+is called the parameter space.
+
+Data being modelled by a parametric family \(f(x; \theta): \theta \in  Theta\)
+can be written as \[
+  X[1, n] \sim \{f(x; \theta) : \theta \in \Theta\}, \text{ for } x \in \mathbb{R}
+.\] 
+
+\subsection{Assessing Estimators}
+
+\paragraph{Estimators}
+Suppose that \(X[1, n] \sim \{f(x; \theta) : \theta \in \Theta\} \).
+As estimator of \(\theta\) is denoted by \((\hat{\theta)}_n\).
+That is, \[
+  \hat{\theta}_n = \hat{\theta}_n(X[1, n]) = g(X[1, n]),
+\]  where \(g: \mathbb{R}^n \to mathbb{R}\).
+
+\paragraph{Estimators of Mean of Normal Distribution}
+Suppose thaty \(X[1, n]\) are independent samples from a normal distribution
+\(\Normal(\mu, \sigma^2)\).
+
+Then, there are a few methods of calculating the mean:
+\begin{itemize}
+  \item Average: \(\hat{\mu}_n = \frac{1}{n} \sum_{i=1}^n X_i \)
+  \item Median: \(\hat{\mu}_n = X_{n/2}\)
+  \item  \(\hat{\mu}_n = \frac{X_1 + X_n}{2}\).
+\end{itemize}
+By the law of large numbers, the first estimator approaches \(\mu\) and
+is the best estimator.
+
+\paragraph{Bias}
+The bias is a way to assess how good an estimator is.
+Is is calculated as \[
+  \Bias(\hat{\theta}) = \mathbb{E}(\theta) - \hat{\theta}
+.\] 
+If  \(\Bias(\hat{\theta}) = 0\) then, \(\theta\) is an unbiased estimator.
+
+\paragraph{Variance Estimators}
+From the definition of variance, we may infer that if \(\hat{\mu}_n = \overline{X}_n\) \[
+  \hat{\simga}^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \hat{\mu})^2
+.\] 
+As such \(\Bias(\hat{\sigma}^2 = \mathbb{E}(\hat{sigma}^2) - \sigma^2)\). Equivalently, \[
+  \Bias(\hat{\sigma}^2) = \sigma^2 \left( 1-\frac{1}{n} \right)  - \sigma^2
+  = sigma^2\left(  - \frac{1}{n} \right) 
+.\] 
+On average, \(\hat{sigma}^2\) will underestimate the variance but,
+the becomes unbiased for large \(n\).
+
+\paragraph{Student \(t\)-Distribution}
+A random variable \(T\) has a \(t\)-distribution with a degree
+of freedom  \(v\) if it has a probability density function of \[
+  f_T(x) = \frac{\Gamma(\frac{v_1}{2})}{\Gamma(v/2)\Gamma(\frac{1}{2})}
+  v^{-\frac{1}{2}} \left(  \right) 
+.\] 
+
