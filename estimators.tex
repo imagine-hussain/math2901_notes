@@ -21,7 +21,7 @@ can be written as \[
   X[1, n] \sim \{f(x; \theta) : \theta \in \Theta\}, \text{ for } x \in \mathbb{R}
 .\] 
 
-\subsection{Assessing Estimators}
+\subsection{Estimators}
 
 \paragraph{Estimators}
 Suppose that \(X[1, n] \sim \{f(x; \theta) : \theta \in \Theta\} \).
@@ -52,7 +52,7 @@ If  \(\Bias(\hat{\theta}) = 0\) then, \(\theta\) is an unbiased estimator.
 
 \paragraph{Variance Estimators}
 From the definition of variance, we may infer that if \(\hat{\mu}_n = \overline{X}_n\) \[
-  \hat{\simga}^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \hat{\mu})^2
+  \hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \hat{\mu})^2
 .\] 
 As such \(\Bias(\hat{\sigma}^2 = \mathbb{E}(\hat{sigma}^2) - \sigma^2)\). Equivalently, \[
   \Bias(\hat{\sigma}^2) = \sigma^2 \left( 1-\frac{1}{n} \right)  - \sigma^2
@@ -64,7 +64,62 @@ the becomes unbiased for large \(n\).
 \paragraph{Student \(t\)-Distribution}
 A random variable \(T\) has a \(t\)-distribution with a degree
 of freedom  \(v\) if it has a probability density function of \[
-  f_T(x) = \frac{\Gamma(\frac{v_1}{2})}{\Gamma(v/2)\Gamma(\frac{1}{2})}
-  v^{-\frac{1}{2}} \left(  \right) 
+  f_T(x) = \frac{\Gamma(\nu/2)}{\Gamma(\nu/2)\Gamma(1/2)}
+  v^{-\frac{1}{2}} \left( 1 + \frac{x^2}{\nu} \right)^{(1-v)/2}
 .\] 
+This looks like a normal distribution. In fact, as \(\nu \to  \infty\),
+\(T_\nu \to Z \sim \Norm(0, 1)\). The \(t\)-distribution has
+a fatter tail.
+
+\paragraph{Normal and \(t\)-Distribution}
+Let \(Y, Z\) be independent random variables with
+\(Y \sim \Normal(0, 1)\) and \(Z \sim \chi_\nu^2\).
+
+Recall that \(\chi^2_n\) is equivalent to the distribution \(\Gamma(n, \frac{1}{2})\).
+
+\subsection{Errors}
+
+\paragraph{Standard Error}
+The standard error of a estimator \(\hat{\sigma}\) is \[
+  \Se(\hat{\theta}) = \frac{1}{\sqrt{n} } \sqrt{\Var(\hat{\theta})}
+.\] 
+Similarly, the estimated standard error is \[
+  \hat{\Se(\hat{\theta})} = \frac{1}{\sqrt{n} }
+  \left[ \sqrt{\Var(\hat{\theta})} \right]_{\theta = \hat{\theta}}
+.\] 
+
+\paragraph{Mean Square Error}
+Define Mean Square Error (MSE) of an estimator to be \[
+  \MSE(\hat{\theta}) \coloneqq \mathbb{E}\left( \left( \hat{\theta}  - \hat{\theta}\right)^2 \right) 
+.\] 
+Equivalently, \[
+  \MSE(\hat{\theta}) = \Var(\hat{\theta}) + [\Bias(\hat{\theta})]^2
+.\] 
+
+This is estimated as \[
+  \hat{\MSE(\hat{\theta})} = \Bias(\hat{\theta})^2 + \Se(\hat{\theta})
+.\] 
+
+\paragraph{Variance Bias Tradeoff}
+For a fixed \(\MSE\), there is a trade-off between variance and bias.
+In statistics, we care for reducing bias most of the time.
+However, in other applications such as machine learning, there is a
+need for low variance.
+
+\paragraph{Comparing Estimators with MSE}
+Suppose that \(\hat{\theta_1}, \hat{\theta_2}\) are two estimators of \(\theta\).
+Then, \(\hat{\theta_1}\) is better than \(\hat{\theta_2}\) at \(\theta_0\)
+if \[
+  \MSE_{\theta_0}(\hat{\theta_1}) < \MSE(\hat{\theta_2})
+.\]
+
+A estimator \(\hat{\theta_1}\) is uniformly better than \(\hat{\theta_2}\) if,
+\(\hat{\theta_1}\) is better for all  \(\theta \in  \Theta\).
+
+\paragraph{Asymptotic Properties of the Estimator}
+An estimator \(\hat{\theta}\) is a consistent estimator of \(\theta\) if as
+\(n \to  \infty\), \[
+  \hat{\theta} \xrightarrow{\mathbb{P}} \theta
+.\] 
+By the weak law of large numbers \(\overline{X}\) is a consistent estimator of \(\mu\).
 
