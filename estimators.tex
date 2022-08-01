@@ -3,8 +3,8 @@
 \subsection{Data and Models}
 
 \paragraph{Samples and Data}
-A random sample is a collextion of (random) observations
-\((X_1, \ldots, X_n)\)
+A random sample is a collection of (random) observations, namely
+\((X_1, \ldots, X_n)\).
 The sample data is \(x_1, \ldots, x_n\).
 For the sake of laziness, this may be represented as
 \(X[1, n]\) and  \(x[1, n]\) respectively.
@@ -122,4 +122,92 @@ An estimator \(\hat{\theta}\) is a consistent estimator of \(\theta\) if as
   \hat{\theta} \xrightarrow{\mathbb{P}} \theta
 .\] 
 By the weak law of large numbers \(\overline{X}\) is a consistent estimator of \(\mu\).
+We say that the estimators are \textit{asymptoticlly} unbiased.
+
+% TODO MOVE DISTS FOR NORMAL TO OWN SECTION AND FINISh
+\paragraph{TODO:} MOVE DISTS FOR NORMAL TO OWN SECTION AND FINISH
+
+\paragraph{Distribution Related to Normal Distribution}
+Given a random sample \(X[1, n]\) that follows  \(\Normal(\mu, \sigma^2)\)
+where all \(X_i \sim \Normal(\mu_i, \sigma_i^2\) with independent \(X_i\).
+
+\paragraph{Consistency}
+Consistency of an estimator is its performance as the amount of data increases.
+For reasonable estimators, we expect that \(\theta = \hat{\theta}\) improves for large \(n\).
+We define an estimator \(\hat{\theta}_n\) to be consistent for \(\theta\)
+if \[
+  \hat{\theta}_n \xrightarrow{\mathbb{P}}.
+.\] 
+
+In cases where checking convergence of probability is difficult, we may equivalently test
+that \[
+  \lim_{n \to \infty} \MSE(\hat{\theta}_n) = 0
+.\] 
+
+\paragraph{Asymptomatic Normality}
+The estimator is asymptotically normal if  \[
+  \frac{\hat{\theta} - \theta}{\Se(\hat{\theta})} \xrightarrow{d} \Norm(0,1).
+.\] 
+We know from the central limit theorem that \(\hat{\mu} = \overline{X}\) and,
+a sample proportion \(\hat{p}\) are asymptotically normal.
+
+\subsection{Notation and Common Practice}
+
+\paragraph{Good Notation For Standard Error and Observed Values}
+It is common to add the standard error in parenthesis after reporting an observed value.
+That is, if \(x_i = 100\) with a standard error  \(10\), then we may state \[
+  x_i = 100(10)
+.\] 
+
+\paragraph{Tau Transformation for Gamma Models}
+For a \(\Gamma(\alpha, \beta)\) distribution, we may often want
+to use the transformation  \(\tau = \alpha \beta\). This corresponds
+to the mean of the distribution.
+
+
+\subsection{Confidence Intervals}
+The value of an estimator is not sufficient to let us know of the inherent variability
+of that estimator. Confidence intervals ameliorate this by proving a \textit{range}
+of values.
+
+Suppose that \(X[1, n]\) is a random sample from a model with a know parameter  \(\theta\).
+Let \[
+  L = L(X[1, n]) \quad \text{ and } \quad U = U(X[1, n])
+\]  be statistics (functions) for \(X_i\)'s such that  \[
+  \mathbb{P}(L < \theta < U) \geq 1 - \alpha, \quad \text{for all } \theta > \Theta
+.\] 
+
+Then, \((L, U)\) is a  \(1 - \alpha\) or,  \(100(1 - \alpha)\%\) confidence interval.
+
+\paragraph{Confidence Interval For a Normal Sample}
+Recall that for \(X[1, n] \sim \Norm(\mu, \sigma)\), we derive that \[
+  \frac{\overline{X} - \mu}{S/\sqrt{n}} \sim t_{n - 1}
+  \quad \text{ and } \quad
+  \frac{(n - 1)S^2}{\sigma^2} \sim \chi^2_{n - 1}
+\]  allow for exact confidence intervals for \(\mu, \sigma\).
+
+A \(1 - \alpha\) confidence interval for  \(\mu\) is  \[
+  \left(
+    \overline{X} - T_{n - 1, 1 - \frac{\alpha}{2}} \frac{S}{\sqrt{n} },
+    X + t_{n - 1, 1 - \frac{\alpha}{2}} \frac{S}{\sqrt{n}}
+  \right)
+.\]
+
+\paragraph{Confidence For Comparing Random Normal Samples}
+Suppose that \[
+  X[1, n] \sim \Norm(\mu_X, \sigma_X^2), 
+  Y[1, n] \sim \Norm(\mu_Y, \sigma_Y^2)
+.\] 
+
+Then, to compare their ostensible means, we take a confidence interval for
+\(\mu_X - \mu_Y\) is \[
+  \hat{X} - \hat{Y} \pm t_{n_X = N_y - 2, 1 - \frac{a}{2}} S_P \sqrt{\frac{1}{n_x} + \frac{1}{n_Y}} 
+.\] 
+Here, we may call the following the \textit{pooled sample variance} \[
+  S_p^2 = \frac{(n_X - 1)S^2_X + (n_Y - 1S^2_Y}{n_X + n_Y - 1}
+.\] 
+
+\paragraph{Confidence Interval for Paired Normal Random Sample}
+Suppose that \((X, Y)\) is a paired normal random sample. We can construct the confidence interval
+for the mean difference  \(D = X - Y\).
 
