@@ -1,0 +1,62 @@
+\section{Methods for Parameter Estimation and Inference}
+
+\paragraph{Estimates vs Estimators}
+It is important to differentiate the following. An estimate of a parameter \(\theta\)
+is a function \(\hat{\theta} = \hat{\theta}(x_1, x_2, \ldots, x_n)\).
+
+An estimator is the same function \(\hat{\theta} = \hat{\theta}(x_1, \ldots, x_n)\) ove
+observable random variables. That is, the estimator is itself a random variable with examinable
+properties while the estimate is an actual number. That is, the realised value of an estimator
+
+\paragraph{Notation}
+Denote \(f_x\) as  \(f\) because writing that subscript is alot of effort.
+
+
+
+\subsection{Method of Moments}
+\paragraph{Method of Moments Estimation}
+Let \(x_1, \ldots, x_n\) be observations from the model \(f\) where,  \[
+  f(x; \theta_1, \ldots, \theta_k)
+.\] 
+
+As there are \(k\) parameters a systemof  \(k\) equations forms, that equates the moments of  \(f_x\)
+with their sample counterparts.
+\begin{align*}
+  \mathbb{E}(X^1) &= \frac{1}{n} \sum_i x_i \\
+  \mathbb{E}(X^2) &= \frac{1}{n} \sum_i x^2_i \\
+  \vdots \\
+  \mathbb{E}(X^k) &= \frac{1}{n} \sum_i x^k_i
+.\end{align*}
+The \textit{method of moments} estimates are the solutions of these equations in
+terms of \(\theta_1, \ldots, \theta_k\).
+
+\paragraph{Consistency of Method of Moments Estimators}
+By the weak law of large numbers, we can deduce that
+\(\hat{\theta}_j \xrightarrow{\mathbb{P}} \theta_j\).
+That is, the method of moments leads to consistent estimations.
+However, this is not optimal as we can do better in terms of standard error and,
+mean squared error.
+
+\subsection{Maximum Likelihood Estimator}
+
+\paragraph{Likelihood Function}
+Let \(x[1, n]\) be observations from a random variable with the pdf \(f\)
+where  \[
+  f(x) = f(x; \theta), \theta \in \Theta
+.\] The \textit{likelihood function} \(\mathcal{L}\) of \(\theta\) is \[
+  \mathcal{L}(\theta) = f(x_1; \theta) \cdots f(x_n; \theta)
+  = \prod_{i = 1}^n f(x_i; \theta), \quad \theta \in \Theta
+.\] 
+Similarly, we have the log-likelihood function of \(\theta\), \[
+  \ell(\theta) = \ln{\mathcal{L}(\theta)} = \sum_i \ln{f(x_i; \theta)}
+.\] 
+
+\paragraph{Maximum Likelihood Estimate}
+Suppose there is \(x[1, n]\) observations from the function \(f\) where \[
+  f(x) = f(x; \theta), \quad \text{ for } \theta \in  \Theta
+.\]
+The maximum likelihood estimate of \(\theta\) is the choice \[
+  \hat{\theta} = \theta, \text{ maximising } \mathcal{\theta} \text{ over } \theta \in \Theta
+.\] 
+
+
