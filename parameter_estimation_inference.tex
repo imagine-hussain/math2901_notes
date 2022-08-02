@@ -56,7 +56,48 @@ Suppose there is \(x[1, n]\) observations from the function \(f\) where \[
   f(x) = f(x; \theta), \quad \text{ for } \theta \in  \Theta
 .\]
 The maximum likelihood estimate of \(\theta\) is the choice \[
-  \hat{\theta} = \theta, \text{ maximising } \mathcal{\theta} \text{ over } \theta \in \Theta
+  \hat{\theta} = \theta, \text{ maximising } \mathcal{L}(\theta) \text{ over } \theta \in \Theta
+.\] 
+
+\paragraph{Equivalence of Log Likelihood Maximisation}
+The place where \(\mathcal{\theta}\) achieves its maximum over \(\theta \in Theta\)
+is also where \[
+  \ell(\theta) = \ln \{\mathcal{L}(\theta)\} = \sum_{i} \ln \{f(x_i; \theta)\} 
+\]  attains its maximum. Therefore, the maximum likelihood estimate of \(\theta\)
+is equivalently, \[
+  \hat{\theta} = \theta \text{ that maximises } \ell(\theta) \text{ over } \Theta
+.\] 
+
+\paragraph{Non-Smooth Functions and Indicators}
+Not all functions \(f(x; \theta)\) are smooth. As such, we may use the
+indicator function for a logical condition \(\mathcal{P}\) given by \[
+  \mathbb{I}(\mathcal{P}) = \begin{cases}
+    1 &= \text{ if } \mathcal{P} \text{ is true}
+    0 &= \text{ if } \mathcal{P} \text{ is false}
+  \end{cases}
+.\] 
+Then, we may try to maximise \(\mathcal{L}(\theta)\cdot \mathbb{I}(\mathcal{P})\).
+
+\paragraph{Indicators and Intersection}
+For any logical conditions \(\mathcal{P}, \mathcal{Q}\), \[
+  \mathbb{I}(\mathcal{P} \cap \mathcal{Q}) = \mathbb{I}(\mathcal{P})\mathbb{I}(\mathcal{Q})
+.\] 
+
+\paragraph{Consistency of Maximul Likelihood Estimators}
+The maximum likelihood estimator \(\hat{\theta}_n\) of \(\theta\)
+is consisted, that is \(\hat{\theta}_n \xrightarrow{\mathbb{P}} \theta\),
+if the following conditions hold.
+\begin{itemize}
+  \item The domain of \(x\) does not depend on  \(\theta\). That is,  all \(f(x; \theta)\)
+    are non-zero over the same set, irrespective of \(\theta\).
+  \item If \(\theta \neq \vartheta\) then \( f(x; \theta) \neq f(x; \vartheta)\).
+    Equivalently, if  \(\theta = \vartheta\) then \(f(x; \theta) = f(x; \vartheta)\).
+  \item The MLE \(\hat{\theta}\) is unique and lies in the interior of \(\Theta\).
+\end{itemize}
+
+\paragraph{Equivariance under Function Transformation}
+If \(\hat{\theta}\) is a MLE of \(\theta\) then for all \(g\),  \[
+  g(\hat{\theta}) \text{ is the MLE of } g(\theta)
 .\] 
 
 
