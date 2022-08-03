@@ -69,13 +69,14 @@ is equivalently, \[
 .\] 
 
 \paragraph{Non-Smooth Functions and Indicators}
-Not all functions \(f(x; \theta)\) are smooth. As such, we may use the
-indicator function for a logical condition \(\mathcal{P}\) given by \[
+Not all functions that are of the form \(f(x; \theta)\) are smooth. As such, we
+may use the indicator function for a logical condition \(\mathcal{P}\) given by
+\[
   \mathbb{I}(\mathcal{P}) = \begin{cases}
-    1 &= \text{ if } \mathcal{P} \text{ is true}
+    1 &= \text{ if } \mathcal{P} \text{ is true} \\
     0 &= \text{ if } \mathcal{P} \text{ is false}
   \end{cases}
-.\] 
+.\]
 Then, we may try to maximise \(\mathcal{L}(\theta)\cdot \mathbb{I}(\mathcal{P})\).
 
 \paragraph{Indicators and Intersection}
@@ -99,5 +100,63 @@ if the following conditions hold.
 If \(\hat{\theta}\) is a MLE of \(\theta\) then for all \(g\),  \[
   g(\hat{\theta}) \text{ is the MLE of } g(\theta)
 .\] 
+
+
+\subsection{Variance and Standard Error}
+\paragraph{Assumptions}
+\begin{itemize}
+  \item Let \(X[1, n] \sim f(x; \theta)\) be independent continuous random variable for some  \(\theta \in  \Theta\).
+  \item Let the corresponding log-likelihood (non-normalised) function be \[
+      \ell_n(\theta) = \sum_{i = 1}^n \ln f(XX_i; \theta)
+    .\]
+  \item Assume \(f(\cdot ; \theta)\) is twice differen=tiable with respect to \(\theta\).
+  \item Assume \(\int f(x; \theta) dx\) is integrable under the integral.
+\end{itemize}
+
+\paragraph{Fisher Score and Information}
+We define the fisher score as \[
+  S_n(\theta) = \ell_n'(\theta)
+.\]
+Further, the Fisher information is defined as \[
+  I_n(\theta) = - \mathbb{E}_\theta \ell_n'' (\theta),
+.\] where the expecation is taked with respect to \(\theta\).
+
+\paragraph{Properties of the Fisher Score and Information} \[
+  \mathbb{E}_\theta \left( S_n(\theta) \right)  = 0.
+.\] Also, \[
+I_n(\theta) = \mathbb{E}_\theta \left[ \ell_n'(\theta) \right]^2 = \Var_\theta(S_n(\theta))
+.\] 
+
+\paragraph{MSE of Max Likelihood Estimator} Let \(\hat{\theta}_n\) be a maximum likelihood edtimator of
+\(\theta\). Then, as \(n \to \infty\), \[
+  I_n(\theta) \cdot \Var(\hat{\theta}_n) \xrightarrow{\mathbb{P}} 1
+.\] 
+Hence, we have the standard error \[
+  \Se(\hat{\theta}) \approx \frac{1}{\sqrt{I_n (\hat{\theta})} }
+.\] 
+
+\paragraph{Asymptomatic Normality of the Maximum Likelihood Estimators}
+This may be one of the \textit{most important} theorems in statistics. Suppose that
+we follow the smoothness assumptions from earlier. Then, \[
+  \frac{\hat{\theta} - \theta}{\sqrt{\Var(\hat{\theta})}} \xrightarrow{d} \Norm(0, 1)
+  \quad \text{ and } \quad
+  \frac{\hat{\theta} - \theta}{\Se(\hat{\theta})} \xrightarrow{d} \Norm(0, 1),
+\] where \[
+  \Se(\hat{\theta}) = \frac{1}{\sqrt{I_n(\theta)}}
+.\] 
+Hence, not only does the MLE make for a useful estimator but, we can also
+make inferences about parameters as the distribution and standard error allow us to construct
+confidence intervals for \(\theta\) using \(\hat{\theta}\)'s data, for any family
+of distributions with known form.
+
+\paragraph{Non-Standard Normality}
+Since, \[
+  \frac{\hat{\theta} - \theta}{\sqrt{\Var(\hat{\theta})}} \xrightarrow{d} \Norm(0, 1)
+,\] we may approximately model \[
+  \hat{\theta} \sim \Norm(\theta, \Var(\hat{\theta}))
+.\] 
+
+\paragraph{TODO: Delta Method for extending normality}
+
 
 

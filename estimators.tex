@@ -46,7 +46,7 @@ is the best estimator.
 \paragraph{Bias}
 The bias is a way to assess how good an estimator is.
 Is is calculated as \[
-  \Bias(\hat{\theta}) = \mathbb{E}(\theta) - \hat{\theta}
+  \Bias(\hat{\theta}) = \mathbb{E}(\hat{\theta}) - \theta
 .\] 
 If  \(\Bias(\hat{\theta}) = 0\) then, \(\theta\) is an unbiased estimator.
 
@@ -178,6 +178,17 @@ Let \[
 .\] 
 
 Then, \((L, U)\) is a  \(1 - \alpha\) or,  \(100(1 - \alpha)\%\) confidence interval.
+
+\paragraph{General Steps to Find Confidence Interval}
+\begin{enumerate}
+  \item Find an estimator \(\hat{\theta}\) of \(\theta\).
+  \item Find some invertible function \(g\) linking  \(\theta\) and \(\hat{\theta}\) for which,
+    you know the distribution.
+  \item To obtain a (symmetric) \(100(1 - \alpha)\) percent interval, notice  \[
+      \mathbb{P}(v_{\frac{\alpha}{2}} < g(\theta, \hat{\theta}) \leq v_{1 - \frac{\alpha}{2}}) = 1 - \alpha
+    ,\]  where \(v_c\) is the  \(100c\)-th percent of the distribution \(g(\hat{\theta}, \theta)\).
+  \item Invert \(g\) to obtain a confidence interval for  \(\theta\).
+\end{enumerate}
 
 \paragraph{Confidence Interval For a Normal Sample}
 Recall that for \(X[1, n] \sim \Norm(\mu, \sigma)\), we derive that \[
