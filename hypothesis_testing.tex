@@ -38,5 +38,57 @@ We take the following steps.
     \end{itemize}
 \end{enumerate}
 
-% \subsection{P-Values}
+\subsection{P-Values}
+
+\paragraph{P-values}
+The \(P\)-value of an observed statistic is the probability that,
+we observe a test statistic that is more \textit{extreme} than the observed
+test statistic when  \(H_0\) is true.
+
+\paragraph{Tests for Normal Samples}
+For \(X[1, n] \sim \Norm(\mu, \sigma^2)\), we can perform exact hypothesis tests
+for \(\mu\) using the main result of the  \(t\)-distribution that \[
+  \frac{\overline{X} - \mu}{S/\sqrt{n}} \sim t_{n - 1}
+.\] 
+
+Then, testing \(H_0: \mu = \mu_0\) verses any  \(H_1\) of form  \(\mu <, =, > \mu_0\),
+the appropriate test-statistic is to calculate  \[
+  \frac{\overline{X} - \mu_0}{S/\sqrt{n}}
+.\] 
+
+
+\paragraph{One Sided Hypothesis Test}
+A one-sided hypothesis test of a parameter \(\theta\) is of the form \[
+  H_0: \theta = \theta_0 \quad \text{ versus } \quad H_1: \theta < \theta_0 \text{ or } \theta > \theta_0
+.\] 
+\paragraph{Two-sided Hypothesis Test}
+A two-sided hypothesis test for \(\theta\) is of the form \[
+  H_0: \theta = \theta_0 \quad \text{ versus } \quad H_1: \theta \neq \theta_0
+.\] This may often be called a two-tailed test.
+
+
+\paragraph{Rejection Regoin}
+The rejection-region serves as an alternative to \(p\)-value tests and is a set
+of values of the test-statistic for which  \(H_0\) is rejected in favour of
+ \(H_1\).
+
+To derive a rejection region, we choose a \(p\)-value called the \textit{significance} level
+for the test, usually denoted by \(\alpha\).
+
+\paragraph{Type I and II Error}
+\begin{itemize}
+  \item \textbf{Type I Error:} This occurs when we reject the null-hypothesis, though it is true.
+  \item \textbf{Type II Error:} This occurs when we accept the null-hypothesis, though it is false.
+\end{itemize}
+
+\paragraph{Type I/II Error and Significance Level}
+The \textit{significance} level of a test is the probability of commiting a 
+Type I error. That is,
+\begin{align*}
+  \alpha &= \text{size} \\
+         &= \text{significance level} \\
+         &= \mathbb{P}(\text{commiting Type I Error}) \\
+         &= \mathbb{P}(\text{Reject null-hypothesis that is true})
+.\end{align*}
+
 
