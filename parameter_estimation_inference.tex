@@ -156,7 +156,28 @@ Since, \[
   \hat{\theta} \sim \Norm(\theta, \Var(\hat{\theta}))
 .\] 
 
-\paragraph{TODO: Delta Method for extending normality}
+% \paragraph{TODO: Delta Method for extending normality}
 
+\paragraph{Lower Bound on Variance}
+Suppose \(\hat{\theta}\) is a asymptotically normal maximum likelihood estimator.
+Let \(\tilde{\theta}\) be any other estimator with \[
+  \mathbb{E}_\theta g(X_1, \ldots X_n) = \mu_n(\theta)
+.\] 
+Then, \[
+  \Var_\theta(\tilde(\theta)_n) \geq \frac{(\mu_n' (\theta))^2}{nI_1(\theta)}
+.\] 
 
+\paragraph{Wald Confidence Intervals}
+Let \(X[1, n]\) be random variables with a common PDF  \(f(x) = f(x; \theta)\) for
+\(\theta \in \Theta\). Since the MLE \(\hat{\theta}\) is asymptotically
+normal, the \(1 - \alpha\) confidence interval is equivalent to  \[
+  \left( 
+  \hat{\theta} - z_{1 - \frac{alpha}{2}} \Se(\hat{\theta}),
+\hat{\theta} + z_{1 - \frac{alpha}{2}} \Se(\hat{\theta}),
+  \right) 
+.\] Here, \(\Se(\hat{\theta}) = \dfrac{1}{\sqrt{I_n(\theta)} }\).
+
+% TODO:
+% - fisher info matrix
+% - gradient vector . . . multi-dimension stuff in gener
 
