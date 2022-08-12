@@ -70,6 +70,14 @@ Suppose \( X \sim \Bin(n, p) \). Then, \[
     \frac{X - np}{\sqrt{np(1- p)}} \xrightarrow{d} Z \sim \Normal(0, 1)
 .\]
 
+\paragraph{Normal Approximation to the Binomial Distribution with Continuity Correction}
+Suppose \( X \sim \Bin(n, p) \). Then, to account for the conversion from a discrete to
+continuous variable, we make use the following approximation: \[
+    \mathbb{P}(X \leq x) \sim \mathbb{P} \left( 
+        Z < \frac{n - np + \frac{1}{2}}{\sqrt{np (1 - p)}}
+    \right) 
+.\] 
+
 \subsection{Convergence of Random Variables}
 
 \paragraph{Convergence of Random Variables}
